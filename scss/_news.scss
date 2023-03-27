@@ -1,0 +1,91 @@
+@import './_variables.scss';
+
+.news_popup_container {
+    position: absolute;top: 43%;left: 0;
+    z-index: 1000;
+    width: 100%;height: 54%;
+    display: flex;flex-direction: column;
+    justify-content: flex-start;align-items: center;
+    padding-top: 2rem;
+}
+.news_popup {
+    width: 74%;height: 86%;
+    padding: 2rem 1.5rem 0.5rem;
+    overflow-x: clip;overflow-y: scroll;
+    background-color: rgba(#000000, .6);
+}
+.news_container_title {
+    position: absolute;top: 9%;left: 50%;
+    z-index: 1000;
+    transform: translate(-50%,-50%);
+    width: 185px;
+}
+.news_popup_list_container {
+    display: flex;flex-direction: column;
+    justify-content: flex-start;align-items: flex-start;
+    transition: all 0.5s ease;
+    & li {
+        display: flex;flex-direction: column;
+        justify-content: flex-start;align-items: flex-start;
+        border-bottom: 0.5px solid rgba(255,255,255,0.5);
+        margin-bottom: 0.8rem;
+        width: 100%;
+        transition: all 0.5s ease;
+    }
+}
+.news_popup_list_title {
+    display: flex;justify-content: space-between;align-items: flex-start;
+    width: 100%;
+    margin-bottom: 0.8rem;
+
+    & h2 {
+        line-height: 1.5rem;
+        font-size: 1rem;
+        font-weight: 500;
+        letter-spacing: 1px;
+        color: $text-color-yellow;
+    }
+    & figure {
+        width: 18px; height: 18px;
+        padding: 0.5rem 0;
+        transition: all 0.2s linear;
+
+    }
+    & button {
+        width: 24px;height: 24px;
+        text-align: center;
+        font-size: .8rem;
+        display: flex;justify-content: center;align-items: flex-start;
+        transform: rotate3d(0, 0, 0, 0deg);
+        transition: all 1s ease;
+
+        &.active {
+            transform: rotate3d(1, 0, 0, 180deg);
+            transition: all .3s ease;
+        }
+    }
+}
+.news_popup_list_content {
+    display: block;
+    width: 100%;max-height: 0;
+    overflow: hidden;
+    transition: all 1s ease;
+
+    &.active {
+        max-height: 1440px;
+        transition: all 1.3s ease-in-out;
+    }
+
+    & p {
+        font-size: 0.9rem;
+        line-height: 1.2rem;
+        letter-spacing: 1px;
+        color: $text-color-yellow;
+        font-weight: 300;
+        margin-bottom: .8rem;
+        white-space: pre-line;
+    }
+}
+::-webkit-scrollbar {
+    display: none;
+}
