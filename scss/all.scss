@@ -5,6 +5,7 @@
 @import './_variables.scss';
 @import './_game.scss';
 @import './_member.scss';
+@import './_slot.scss';
 
 /* 初始化 */
 *{
@@ -66,20 +67,21 @@ table {
 	border-spacing: 0;
 }
 /* 背景圖更改地方 */
-body {
-    background-image: url(../img/img_background.png);
+main  {
+    background-image: url(../img/img_background.jpg);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100% 840.03px;
+    background-position: center;
 }
-/* 如果需要滾動畫面就把高度改為 840.03 反之 100vh */
-@media (max-height:840.03px) {
-    body {
-        height: 840.03px;
+/* 背景圖只有手機板的大小*/
+@media (max-width:426px) {
+    main  {
+        background-size: 100% 840.03px;
     }
 }
-@media (min-height:840.03px)  {
-    body {
-        height:100vh;
+@media (min-width:426px)  {
+    main  {
+        background-size: 425px 840.03px;
     }
 }
 /* lobby.html */

@@ -1331,6 +1331,393 @@
   display: none;
 }
 
+/* 變數 */
+/* selectGame.html */
+/* header區 */
+.slot_main {
+  background-image: url(../img/08_Slot/img_bg.jpg);
+  background-size: 375px 100%;
+}
+.slot_main > .main_contain {
+  overflow: hidden;
+}
+.slot_main .main_header {
+  padding: 0;
+  z-index: 9;
+}
+.slot_main .main_header .top_banner_ham_container {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+}
+.slot_main .main_header .top_banner_ham_container > .top_banner_ham_container_content {
+  width: 50%;
+  height: 80%;
+  padding-top: 1rem;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+}
+.slot_main .main_header .top_banner_ham_container > .top_banner_ham_container_content > .top_banner_ham_container_content_name {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.6rem;
+}
+.slot_main .main_header .top_banner_ham_container > .top_banner_ham_container_content > .top_banner_ham_container_content_name > h2 {
+  color: white;
+  font-size: 0.8rem;
+}
+.slot_main .main_header .top_banner_ham_container > .top_banner_ham_container_content > .top_banner_ham_container_content_name > p {
+  color: white;
+  font-size: 0.8rem;
+}
+.slot_main .main_header .top_banner_ham_container > .top_banner_ham_container_content > .top_banner_ham_container_content_score {
+  display: flex;
+  justify-content: center;
+}
+.slot_main .main_header .top_banner_ham_container > .top_banner_ham_container_content > .top_banner_ham_container_content_score > h2 {
+  color: yellow;
+  font-size: 0.8rem;
+}
+.slot_main .main_header .top_banner_ham_container > .top_banner_ham_container_content > .top_banner_ham_container_content_score > p {
+  color: yellow;
+  font-size: 0.8rem;
+}
+.slot_main .main_header .top_banner_ham_container > button {
+  position: relative;
+  width: 46px;
+  height: 50px;
+  border: none;
+  background: rgba(255, 255, 255, 0);
+}
+.slot_main .main_header .top_banner_ham_container > button:hover::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: 0;
+  height: 0;
+  box-shadow: 0px 0px 15px 17px rgb(255, 183, 91);
+  opacity: 0.5;
+  mix-blend-mode: screen;
+}
+
+/* 上分區域 */
+.slot_main .slot_main_onScoreMenu {
+  position: absolute;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  padding-top: 3rem;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  transform: translate(100%, 0);
+  opacity: 0;
+}
+.slot_main .slot_main_onScoreMenu > .slot_main_onScoreMenu_bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.slot_main .slot_main_onScoreMenu > .slot_main_onScoreMenu_content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 75%;
+  height: -moz-fit-content;
+  height: fit-content;
+  /* 拖曳INPUT */
+  /* 輸入欄 */
+  /* 確認上分按鈕 */
+}
+.slot_main .slot_main_onScoreMenu > .slot_main_onScoreMenu_content > .slot_main_onScoreMenu_content_num {
+  position: relative;
+}
+.slot_main .slot_main_onScoreMenu > .slot_main_onScoreMenu_content > .slot_main_onScoreMenu_content_num > .slot_main_onScoreMenu_content_num_value {
+  position: absolute;
+  bottom: 1.9rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  text-align: center;
+  color: #faf9c4;
+  font-size: 2.2rem;
+  overflow: auto;
+}
+.slot_main .slot_main_onScoreMenu > .slot_main_onScoreMenu_content > .slot_main_onScoreMenu_content_drag {
+  margin-top: 0.5rem;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+}
+.slot_main .slot_main_onScoreMenu > .slot_main_onScoreMenu_content > .slot_main_onScoreMenu_content_drag > input {
+  /* 滑動軌道 樣式 */
+  /* 滑動鈕 樣式 */
+}
+.slot_main .slot_main_onScoreMenu > .slot_main_onScoreMenu_content > .slot_main_onScoreMenu_content_drag > input, .slot_main .slot_main_onScoreMenu > .slot_main_onScoreMenu_content > .slot_main_onScoreMenu_content_drag > input::-webkit-slider-runnable-track, .slot_main .slot_main_onScoreMenu > .slot_main_onScoreMenu_content > .slot_main_onScoreMenu_content_drag > input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+}
+.slot_main .slot_main_onScoreMenu > .slot_main_onScoreMenu_content > .slot_main_onScoreMenu_content_drag > input {
+  height: 30px;
+  width: 100%;
+  overflow: hidden;
+  cursor: pointer; /* 滑鼠放上會改變鼠標樣式 */
+  outline: none; /* 取消底線效果 */
+  background-image: url(../img/08_Slot/img_sliderbar.png);
+  background-color: unset;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 0 50%;
+}
+.slot_main .slot_main_onScoreMenu > .slot_main_onScoreMenu_content > .slot_main_onScoreMenu_content_drag > input::-webkit-slider-runnable-track {
+  height: 0;
+  width: 100%;
+  background: unset;
+}
+.slot_main .slot_main_onScoreMenu > .slot_main_onScoreMenu_content > .slot_main_onScoreMenu_content_drag > input::-webkit-slider-thumb {
+  position: relative;
+  width: 32px;
+  aspect-ratio: 1/1;
+  margin-top: -1rem; /* 會受到寬高影響定位，需微調 */
+  border-radius: 50%;
+  background-image: url(../img/08_Slot/img_slider.png);
+  background-color: unset;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.slot_main .slot_main_onScoreMenu > .slot_main_onScoreMenu_content > .slot_main_onScoreMenu_content_input {
+  margin-top: 1.5rem;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 2.5rem;
+}
+.slot_main .slot_main_onScoreMenu > .slot_main_onScoreMenu_content > .slot_main_onScoreMenu_content_input > input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+       appearance: none;
+  height: 100%;
+  width: 80%;
+  overflow: hidden;
+  cursor: pointer; /* 滑鼠放上會改變鼠標樣式 */
+  outline: none;
+  border: none;
+  background-color: unset;
+  font-size: 1.5rem;
+  text-align: center;
+  color: white;
+}
+.slot_main .slot_main_onScoreMenu > .slot_main_onScoreMenu_content > .slot_main_onScoreMenu_content_input > input::-moz-placeholder {
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 1.3rem;
+}
+.slot_main .slot_main_onScoreMenu > .slot_main_onScoreMenu_content > .slot_main_onScoreMenu_content_input > input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 1.3rem;
+}
+.slot_main .slot_main_onScoreMenu > .slot_main_onScoreMenu_content > .slot_main_onScoreMenu_content_input > input::-webkit-inner-spin-button, .slot_main .slot_main_onScoreMenu > .slot_main_onScoreMenu_content > .slot_main_onScoreMenu_content_input > input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.slot_main .slot_main_onScoreMenu > .slot_main_onScoreMenu_content > .slot_main_onScoreMenu_content_input img {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: block;
+  width: 80%;
+  height: 100%;
+  z-index: -1;
+}
+.slot_main .slot_main_onScoreMenu > .slot_main_onScoreMenu_content > .slot_main_onScoreMenu_btn_confirmOnScore {
+  margin-top: 2.5rem;
+  position: relative;
+  width: 80%;
+}
+.slot_main .slot_main_onScoreMenu > .slot_main_onScoreMenu_content > .slot_main_onScoreMenu_btn_confirmOnScore > button {
+  position: absolute;
+  inset: 0;
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+}
+.slot_main .slot_main_onScoreMenu > .slot_main_onScoreMenu_content > .slot_main_onScoreMenu_btn_confirmOnScore > button:hover::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: block;
+  width: 70%;
+  height: 0;
+  box-shadow: 0px 0px 35px 19px rgb(255, 183, 91);
+  opacity: 0.5;
+  mix-blend-mode: screen;
+}
+
+/* 上分區域-顯示 */
+.slot_main .slot_main_onScoreMenu.show {
+  transform: translate(0, 0);
+  opacity: 1;
+}
+
+/* 主要內容區 */
+.slot_main .main_contain_mid {
+  margin-top: -0.75rem;
+  padding: 0 12px;
+}
+.slot_main .main_contain_mid > .main_background {
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.slot_main .main_contain_mid > .main_background > .main_contain_mid_deco {
+  z-index: -1;
+}
+.slot_main .main_contain_mid > .main_background > .main_contain_mid_deco > video {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+/* footer區 */
+.slot_main .footer_frame {
+  width: 100%;
+  height: auto;
+  margin-top: 0;
+}
+.slot_main .footer_frame > .frame_container_bottom_container > .frame_container_bottom {
+  position: relative;
+}
+.slot_main .footer_frame > .frame_container_bottom_container > .frame_container_bottom_logo {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.slot_main .footer_frame > .frame_container_bottom_container > .frame_container_bottom_btn {
+  position: absolute;
+  top: 0.5rem;
+  left: 1rem;
+  display: flex;
+  width: 92%;
+  height: 5.5rem;
+}
+.slot_main .footer_frame > .frame_container_bottom_container > .frame_container_bottom_btn button {
+  width: 1rem;
+  height: 1rem;
+  border: unset;
+  background-color: rgba(255, 255, 255, 0);
+  position: relative;
+}
+.slot_main .footer_frame > .frame_container_bottom_container > .frame_container_bottom_btn > .frame_container_bottom_btn_left {
+  display: flex;
+  flex-direction: column;
+}
+.slot_main .footer_frame > .frame_container_bottom_container > .frame_container_bottom_btn > .frame_container_bottom_btn_left > button:nth-child(1) {
+  width: 4rem;
+  height: 40%;
+}
+.slot_main .footer_frame > .frame_container_bottom_container > .frame_container_bottom_btn > .frame_container_bottom_btn_left > button:nth-child(1):hover::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: 0;
+  height: 0;
+  box-shadow: 4px 0px 23px 20px rgb(255, 183, 91);
+  opacity: 0.5;
+  mix-blend-mode: screen;
+}
+.slot_main .footer_frame > .frame_container_bottom_container > .frame_container_bottom_btn > .frame_container_bottom_btn_left > button:nth-child(2) {
+  width: 3.5rem;
+  height: 50%;
+}
+.slot_main .footer_frame > .frame_container_bottom_container > .frame_container_bottom_btn > .frame_container_bottom_btn_left > button:nth-child(2):hover::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: 0;
+  height: 0;
+  box-shadow: 0px 0px 23px 20px rgb(255, 183, 91);
+  opacity: 0.5;
+  mix-blend-mode: screen;
+}
+.slot_main .footer_frame > .frame_container_bottom_container > .frame_container_bottom_btn > .frame_container_bottom_btn_center {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 13.5rem;
+}
+.slot_main .footer_frame > .frame_container_bottom_container > .frame_container_bottom_btn > .frame_container_bottom_btn_center > .frame_container_bottom_btn_center_top {
+  display: flex;
+  justify-content: space-evenly;
+}
+.slot_main .footer_frame > .frame_container_bottom_container > .frame_container_bottom_btn > .frame_container_bottom_btn_center > .frame_container_bottom_btn_center_top > button {
+  width: 3rem;
+  height: 2rem;
+}
+.slot_main .footer_frame > .frame_container_bottom_container > .frame_container_bottom_btn > .frame_container_bottom_btn_center > .frame_container_bottom_btn_center_top > button:hover::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: 0;
+  height: 0;
+  box-shadow: 0px 0px 15px 17px rgb(255, 183, 91);
+  opacity: 0.5;
+  mix-blend-mode: screen;
+}
+.slot_main .footer_frame > .frame_container_bottom_container > .frame_container_bottom_btn > .frame_container_bottom_btn_center > .frame_container_bottom_btn_center_bottom {
+  display: flex;
+  justify-content: space-around;
+}
+.slot_main .footer_frame > .frame_container_bottom_container > .frame_container_bottom_btn > .frame_container_bottom_btn_center > .frame_container_bottom_btn_center_bottom > button {
+  width: 2.5rem;
+  height: 2.6rem;
+}
+.slot_main .footer_frame > .frame_container_bottom_container > .frame_container_bottom_btn > .frame_container_bottom_btn_center > .frame_container_bottom_btn_center_bottom > button:hover::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: 0;
+  height: 0;
+  box-shadow: 0px 0px 15px 17px rgb(255, 183, 91);
+  opacity: 0.5;
+  mix-blend-mode: screen;
+}
+.slot_main .footer_frame > .frame_container_bottom_container > .frame_container_bottom_btn > .frame_container_bottom_btn_right > button {
+  width: 4rem;
+  height: 100%;
+}
+.slot_main .footer_frame > .frame_container_bottom_container > .frame_container_bottom_btn > .frame_container_bottom_btn_right > button:hover::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: 0;
+  height: 0;
+  box-shadow: 0px 0px 20px 30px rgb(255, 183, 91);
+  opacity: 0.5;
+  mix-blend-mode: screen;
+}
+
 /* 初始化 */
 * {
   margin: 0%;
@@ -1399,21 +1786,22 @@ table {
 }
 
 /* 背景圖更改地方 */
-body {
-  background-image: url(../img/img_background.png);
+main {
+  background-image: url(../img/img_background.jpg);
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100% 840.03px;
+  background-position: center;
 }
 
-/* 如果需要滾動畫面就把高度改為 840.03 反之 100vh */
-@media (max-height: 840.03px) {
-  body {
-    height: 840.03px;
+/* 背景圖只有手機板的大小*/
+@media (max-width: 426px) {
+  main {
+    background-size: 100% 840.03px;
   }
 }
-@media (min-height: 840.03px) {
-  body {
-    height: 100vh;
+@media (min-width: 426px) {
+  main {
+    background-size: 425px 840.03px;
   }
 }
 /* lobby.html */

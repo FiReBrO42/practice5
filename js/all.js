@@ -99,9 +99,10 @@ Vue.createApp({
         storedRecord: false,
         gameRecord: false,
         convertRecord: false
-      }
-
-
+      },
+      /* slot.html 新增 */
+      onScoreMenu:false,
+      sliderValue: 999999999
     }
   },
   methods: {
@@ -244,12 +245,28 @@ Vue.createApp({
     changePasswordBtn() {
       window.location = './member.html'
     },
+    /* slot.html 新增 */
+    onScoreMenuSwitch () {
+      this.onScoreMenu = !this.onScoreMenu
+    },
+    confirmOnScore () {
+      this.onScoreMenu = !this.onScoreMenu
+    },
+    setSliderValue(value) {
+      this.sliderValue = parseInt(value);
+    }
   },
   mounted() {
     swiperJs.methods.swiper()
     swiperJs.methods.swiperCarousel()
     swiperJs.methods.swiperSlotmachine()
     this.filterMachine('all')
+  },
+    /* slot.html 新增 */
+  computed: {
+    formattedValue() {
+      return this.sliderValue.toLocaleString();
+    },
   },
 })
   //全域註冊
