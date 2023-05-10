@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- bootstrap css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <!-- Swiper Css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./css/all.css">
+</head>
+
+<body>
+    <div id="app">
+        <main class="w-100 h-auto d-grid">
+            <!-- 中間顯示圖 -->
+            <div class="main_contain position-relative">
+                <!-- header -->
+                <header class="main_header position-relative">
+                    <!-- LOGO底圖 -->
+                    <div class="main_contain_top d-grid position-relative">
+                        <img src="./img/01_Lobby/img_logo.png" alt="Logo圖">
+                    </div>
+                    <!-- 紫色外框 -->
+                    <img class="frame_container_top" src="./img/01_Lobby/img_slotmachine_top.png" alt="完整機台外框圖">
+                    <!-- 光暈動畫 -->
+                    <div class="frame_top_light position-absolute">
+                        <span class="light_ani frame_top_light_top"></span>
+                        <span class="light_ani frame_top_light_right"></span>
+                        <span class="light_ani frame_top_light_bottom"></span>
+                        <span class="light_ani frame_top_light_left"></span>
+                    </div>
+                    <!-- 按鈕 -->
+                    <div class="top_banner_ham_container">
+                        <!-- 更改連結去 all.js 更改該函式 -->
+                        <div class="top_banner_btn_ham btn_ham " ></div>
+                        <div class="top_banner_btn_logout btn_return " @click="returnBack"></div>
+                    </div>
+                </header>
+                <!-- 主要內容區 -->
+                <div class="main_contain_mid position-relative">
+                    <!-- 金色外框 -->
+                    <div class="main_contain_mid_deco">
+                        <img src="./img/01_Lobby/img_goldframe.png" alt="中間金框">
+                    </div>
+                    <!-- 頂部區 -->
+                    <div class="mid_publish_container col position-relative ">
+                        <!-- 公告輪播圖 -->
+                        <div class="mid_publish d-grid">
+                            <img class="img-fluid" src="./img/01_Lobby/img_publish.png" alt="公告背景">
+                            <div class="swiper mid_publish_text_container">
+                                <div class="swiper-wrapper mid_publish_list">
+                                    <!-- 由此新增項目 --><!-- 1. -->
+                                    <div class="swiper-slide">
+                                        <h2>1.這裡是公告內容區</h2><!-- 內容 -->
+                                    </div>
+                                    <!-- 2. -->
+                                    <div class="swiper-slide">
+                                        <h2>2.這裡是公告內容區</h2>
+                                    </div>
+                                    <!-- 3. -->
+                                    <div class="swiper-slide">
+                                        <h2>3.這裡是公告內容區</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 背景輪播圖 -->
+                        <div class="mid_publish_carousel">
+                            <!-- 底部背景圖，撐高避免破圖-->
+                            <img class="img-fluid" src="./img/01_Lobby/img_fortuneruler.jpg" alt="輪播圖">
+                            <div class="swiperCarousel ">
+                                <div class="swiper-wrapper mid_publish_list">
+                                    <!-- 有此新增項目 --><!-- 1. -->
+                                    <div class="swiper-slide">
+                                        <img class="img-fluid" src="./img/01_Lobby/img_fortuneruler.jpg" alt="輪播圖">
+                                    </div>
+                                    <!-- 2. -->
+                                    <div class="swiper-slide">
+                                        <img class="img-fluid" src="./img/01_Lobby/img_fortuneruler.jpg" alt="輪播圖">
+                                    </div>
+                                    <!-- 3. -->
+                                    <div class="swiper-slide">
+                                        <img class="img-fluid" src="./img/01_Lobby/img_fortuneruler.jpg" alt="輪播圖">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 中下背景圖 -->
+                    <div class="down_background_container d-grid position-relative">
+                        <!-- 背景圖 -->
+                        <img class="img-fluid" src="./img/07_Register/img_joinbackground.jpg" alt="登入背景圖">
+                        <div >
+                            <img src="./img/07_Register/img_join.png" alt="會員登入標題">
+                        </div>
+                    </div>
+                    <!-- 中間金屬造型框 -->
+                    <img class="frame_container_mid" src="./img/01_Lobby/img_slotmachine_mid.png" alt="完整機台外框圖">
+                    <!-- 光暈動畫 -->
+                    <div class="frame_mid_light position-absolute">
+                        <span class="light_ani2 frame_mid_light_top"></span>
+                        <span class="light_ani2 frame_mid_light_right"></span>
+                        <span class="light_ani2 frame_mid_light_bottom"></span>
+                        <span class="light_ani2 frame_mid_light_left"></span>
+                    </div>
+                    <!-- 註冊表單  -->
+                    <div class="siginup_container">
+                        <div class="siginup position-relative">
+                            <!-- 登入表單 資料在 signUpView.js 中-->
+                            <verify-view></verify-view>
+                            <!-- 加入會員副標 -->
+                            <div class="siginup_container_sub_container">
+                                <h2>已经是会员?</h2>
+                                <div class="siginup_container_sub_btn ">
+                                    <a href="./login.html">
+                                        <img src="./img/07_Register/btn/btn_memberlogin.png" alt="會員登入按鈕">
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- footer -->
+                <footer class="footer_frame">
+                    <div class="frame_container_bottom_container position-relative">
+                        <!-- LOGO跑馬燈 無限循環圖-->
+                        <div class="swiperSlotmachine_container">
+                            <div class="swiperSlotmachine ">
+                                <div class="swiper-wrapper mid_publish_list">
+                                    <!-- 循環圖1 -->
+                                    <div class="swiper-slide">
+                                        <img src="./img/01_Lobby/img_slotmachine_bottom_logo.png" alt="機台Logo跑馬燈">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="./img/01_Lobby/img_slotmachine_bottom_logo.png" alt="機台Logo跑馬燈">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="./img/01_Lobby/img_slotmachine_bottom_logo.png" alt="機台Logo跑馬燈">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 底部遊戲機台圖 -->
+                        <div class="frame_container_bottom">
+                            <img src="./img/01_Lobby/img_slotmachine_bottom.png" alt="完整機台外框圖">
+                        </div>
+                        <!-- 光暈動畫 -->
+                        <div class="frame_bottom_light position-absolute">
+                            <span class="light_ani3 frame_bottom_light_top"></span>
+                            <span class="light_ani3 frame_bottom_light_right"></span>
+                            <span class="light_ani3 frame_bottom_light_right2"></span>
+                            <span class="light_ani3 frame_bottom_light_bottom"></span>
+                            <span class="light_ani3 frame_bottom_light_bottom2"></span>
+                            <span class="light_ani3 frame_bottom_light_bottom3"></span>
+                            <span class="light_ani3 frame_bottom_light_left"></span>
+                            <span class="light_ani3 frame_bottom_light_left2"></span>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </main>
+    </div>
+
+    <!-- Swiper JS-->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <!-- bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"
+        integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+    <!-- Vue -->
+    <script src="https://unpkg.com/vue@next"></script>
+    <!-- Vue-validate -->
+    <script src="https://unpkg.com/vee-validate@next"></script>
+    <script src="https://unpkg.com/@vee-validate/rules"></script>
+    <script src="https://unpkg.com/@vee-validate/i18n@4.1.0"></script>
+
+    <script src="./js/all.js" type="module">
+    </script>
+
+</body>
+
+</html>
