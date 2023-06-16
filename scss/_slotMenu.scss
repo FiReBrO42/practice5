@@ -1,0 +1,849 @@
+/* 左側 slotMenu */
+.slotMenu_container {
+    position: absolute;
+    inset: 0;
+    z-index: 999;
+
+    flex-direction: column;
+    transform: translateX(-100%);
+    transition: all .3s ease;
+
+    .slotMenu_bg {
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        background-color:$text-color-black;
+        opacity: 0;
+        transition: all .4s ease;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+
+    &.active {
+        transform: translateX(0);
+
+        .slotMenu_bg {
+            opacity: .7;
+        }
+    }
+}
+.slotMenu {
+    background-image: url(/img/08_Slot/slot_Info/img_playermenu_bg.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    position: relative;
+    margin-right: auto;
+    padding-top: 3rem;
+    width: 71%;
+    height: 95%;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+}
+
+.slotMenu_userInfo_container {
+    place-items: center;
+    width: 87%;
+    height: auto;
+    margin-bottom: 0.5rem;
+
+    & > img {
+        width: 100%;height: auto;
+        object-fit: contain;
+    }
+}
+.slotMenu_userInfo {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-between;
+    width: 85%;
+    height: 50%;
+}
+.slotMenu_userInfo_rack {
+    display: flex;
+    flex-direction:column;align-items: center;
+    width: 40px;height: 40px;
+
+    & img {
+        width: 100%;height: 100%;object-fit: contain;
+    }
+    & figcaption {
+        color: $text-color-white;
+        font-size: 0.8rem;
+        margin-top: 8px;
+    }
+}
+.slotMenu_userInfo_content {
+    display: flex;flex-direction: column;
+    justify-content: center;align-items: center;
+    width: 73%;height: 100%;
+}
+.slotMenu_userInfo_name {
+    width: 100%;height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    & h2 {
+        width: 48%;
+        font-size: 0.9rem;
+        color: $text-color-white;
+    }
+    & div{
+        width: 58%;
+
+        & p {
+            font-size: 0.9rem;
+            color: $text-color-white;
+            word-wrap: break-word;
+        }
+    }
+}
+.slotMenu_userInfo_content_money {
+    display: flex;width: 100%;height: auto;
+    align-items: center;
+    justify-content: flex-start;
+
+    & p {
+        width: 54%;
+        color:$text-color-yellow;
+        font-size: 0.9rem;
+        word-wrap: break-word;
+        margin: 0 12px;
+    }
+}
+.slotMenu_userInfo_content_money_icon {
+    width: 1.5rem;
+    aspect-ratio: 1/1;
+
+    & img {
+        width: 100%;height: 100%;
+        object-fit: contain;
+    }
+}
+.slotMenu_userInfo_content_money_btn {
+    position: relative;
+    width: 16px;height: 16px;
+    & img {
+        width: 100%;height: 100%;object-fit: contain;
+    }
+    & :hover{
+        cursor: pointer;
+    }
+    &:hover::after {
+        content: '';
+        position: absolute;top: 54%;left: 50%;
+        display: block;
+        width: 0;height: 0;
+        box-shadow: 0px 0px 10px 9px rgb(255, 238, 131);
+        opacity: .4;
+        mix-blend-mode: screen;
+    }
+}
+.slotMenu_userInfo_btn {
+    place-items: center;
+    width: 100%;
+    height: auto;
+
+    & a {
+        width: 43%;
+        
+        & img {
+            width: 100%;height: 100%;object-fit: contain;
+        }
+    }
+}
+
+/* slotMenu_expendList */
+.slotMenu_expendList {
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 58%;
+    overflow: scroll;
+}
+.slotMenu_expendList_container {
+    display: flex;flex-direction: column;
+    justify-content: flex-start;align-items: center;
+
+    & > li {
+        width: 63%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 0.5rem;
+
+    }
+}
+
+.slotMenu_expendList_game_btn_container {
+    width: 100%;
+    & > img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+    &:hover{
+        cursor: pointer;
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%);
+            display: block;
+            width: 70%;
+            height: 0;
+            box-shadow: 0px 0px 11px 11px rgb(255, 238, 131);
+            opacity: 0.4;
+            mix-blend-mode: screen;
+        }
+    }
+
+}
+.slotMenu_expendList_game_btn_icon {
+    position: absolute;top: 33%;right:3.5%;    
+    width: 24px;
+    transition: all 0.5s ease;
+
+    &.active {
+        transform: translateY(-4px) rotate3d(1, 0, 0, 180deg);
+        transition: all 0.5s ease;
+
+    }
+}
+.slotMenu_expendList_game_list_container {
+    width: 100%;
+    margin-top: 6px;
+    max-height: 0;
+    padding: 0 0.8rem;
+    overflow-y: scroll;
+    transition: all 0.5s ease;
+
+    &.active {
+        max-height: 1440px;
+        transition: all 1s ease;
+    }
+}
+.slotMenu_expendList_game_list {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin: 0.5rem 0;
+    gap: 0.5rem;
+    & li {
+        position: relative;
+        width: 100%;
+
+        & > a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            & > div{
+                width: 2rem;
+                aspect-ratio: 1/1;
+                margin-right: 0.5rem;
+            } 
+            &  img {
+                width: 100%;height: 100%;
+                object-fit: contain;
+            }
+            & > p {
+                width: calc(100% - 2rem - 0.5rem );
+                font-size: 0.8rem;
+                color: $text-color-white;
+            }
+        }
+        
+
+        &:hover::after {
+            content: '';
+            position: absolute;top: 54%;left: 50%;
+            display: block;
+            width: 0;height: 0;
+            box-shadow: 0px 0px 16px 21px rgb(255, 238, 131);
+            opacity: .4;
+            mix-blend-mode: screen;
+        }
+    }
+}
+.slotMenu_close {
+    position: absolute;
+    bottom: 4rem;
+    width: 45%;
+    
+    & > button {
+        width: 100%;
+        border: unset;
+        background: unset;
+        position: relative;
+
+        & > img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+        &:hover{
+            cursor: pointer;
+        }
+        &:hover::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 25%;
+            display: block;
+            width: 52%;
+            box-shadow: 0px 0px 30px 16px rgb(252, 255, 113);
+            opacity: 0.4;
+            mix-blend-mode: screen;
+        }
+    }
+}
+
+/* 右側slotSetMenu */
+.slotSetMenu_container {
+    position: absolute;
+    inset: 0;
+    z-index: 999;
+
+    flex-direction: column;
+    transform: translateX(100%);
+    transition: all .3s ease;
+
+    .slotSetMenu_bg {
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        background-color:$text-color-black;
+        opacity: 0;
+        transition: all .4s ease;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+
+    &.active {
+        transform: translateX(0);
+
+        .slotSetMenu_bg {
+            opacity: .7;
+        }
+    }
+}
+.slotSetMenu {
+    background-image: url(/img/08_Slot/slot_Info/img_soltinfo_bg.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    position: relative;
+    margin-left: auto;
+    padding-top: 2rem;
+    width: 80%;
+    height: 95%;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+}
+
+.slotSetMenu_title_container {
+    background-image: url(/img/08_Slot/slot_Info/img_slotinfo.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 65%;
+    padding: 0.5rem 1rem;
+    align-items: center;
+
+    .slotSetMenu_title_game {
+        width: 4rem;
+        height: auto;
+        & > img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+    }
+
+    .slotSetMenu_title_content {
+        margin-left: 0.3rem;
+        flex-direction: column;
+        width: auto;
+        & > div {
+            margin: 0.5rem 0 ;
+        }
+        .slotSetMenu_title_content_gameName p{
+            font-size: 0.9rem;
+            color: $text-color-white;
+
+        }
+        .slotSetMenu_title_content_score p{
+            font-size: 0.9rem;
+            color: $text-color-yellow;
+        }
+    }
+}
+
+.slotSetMenu_list_container {
+    margin-top: 1.5rem;
+    flex-direction: column;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.8rem;
+
+    .slotSetMenu_list {
+        position: relative;
+        width: 50%;height: fit-content;
+
+        & > button {
+            width: 100%;
+            border: unset;
+            background: unset;
+            & > img {
+                width: 100%;
+                height: auto; 
+                object-fit: contain;
+            }
+
+            &:hover{
+                cursor: pointer;
+            }
+
+            &:hover::after {
+                content: "";
+                position: absolute;
+                top: 50%;
+                display: block;
+                width: 100%;
+                box-shadow: 0px 0px 21px 13px rgb(255 177 113);
+                opacity: 0.4;
+                mix-blend-mode: screen;
+            }
+        }
+    }
+}
+.btn_collectslot_active::after {
+    content: '';
+    position: absolute;
+    right: 90%;
+    z-index: 9;
+    width: 3rem;
+    aspect-ratio: 1/1;
+    background-image: url(/img/08_Slot/slot_Info/img_collected_icon.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+}
+.slotSetMenu_close {
+    position: absolute;
+    bottom: 2.5rem;
+    width: 45%;
+    
+    & > button {
+        width: 100%;
+        border: unset;
+        background: unset;
+        & > img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+        &:hover{
+            cursor: pointer;
+            
+            &::after {
+                content: "";
+                position: absolute;
+                top: 50%;
+                display: block;
+                width: 100%;
+                box-shadow: 0px 0px 21px 13px rgb(255 177 113);
+                opacity: 0.4;
+                mix-blend-mode: screen;
+            }
+        }
+    }
+}
+
+/* slotSetMenu 選單各功能 */
+.slotSetMenu_Function {
+    position: absolute;
+    inset: 0;
+    z-index: 9999;
+    display: flex;justify-content: center;
+    align-items: center;
+    padding-top:  3rem ;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    transform: translate(100%, 0);
+    opacity: 0;
+
+    & > .slotSetMenu_Function_bg {
+        position: absolute;
+        top: 0;left: 0;
+        width: 100%; height: 100%;
+        z-index: -1;
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    &.show {
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+}
+.slotSetMenu_Function_content_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.slotSetMenu_Function_title {
+    width: 60%;
+    height: auto;
+    margin-bottom: 0.5rem;
+    & > img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+}
+.slotSetMenu_Function_content {
+    position: relative;
+    width: 60%;
+    height: auto;
+    margin-bottom: 1rem;
+    .slotSetMenu_Function_content_bg > img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+}
+/* slotSetMenu的 table */
+.slotSetMenu_Function_content_table_container {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+
+    & > table {
+        width: 80%;
+    }
+
+    & tr {
+        display: flex;
+        margin: 1rem 0;
+        & td {
+            display: block;
+            text-align: right;
+            font-size: 0.85rem;
+            white-space: nowrap;
+            color: white;
+        }
+
+    }
+    .slotSetMenu_Function_content_table_container_title {
+        width: 38%;
+        text-align: right;
+        margin-right: 1rem;
+    }
+}
+/* slotSetMenu 的 btn */
+.slotSetMenu_Function_btn {
+    width: 35%;
+    height: auto;
+
+    & > button {
+        border: unset;
+        background: unset;
+        width: 100%;
+        position: relative;
+
+        &:hover::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 10%;
+            display: block;
+            width: 80%;
+            box-shadow: 0px 0px 23px 10px rgb(252 255 113);
+            opacity: 0.4;
+            mix-blend-mode: screen;
+        }
+
+        & > img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+    }
+}
+/* 下分機台 */
+.slot_loadScore {
+    width: 100%;
+    position: relative;
+    margin-bottom: 8rem;
+}
+.slot_loadScore_list_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+
+    & >li {
+        width: 37%;
+        height: auto;
+
+        & > button {
+            border: unset;
+            background: unset;
+            position: relative;
+            &:hover {
+                cursor: pointer;
+                
+            }
+            &:hover::after {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: 10%;
+                display: block;
+                width: 80%;
+                box-shadow: 0px 0px 23px 13px rgb(252 255 113);
+                opacity: 0.4;
+                mix-blend-mode: screen;
+            }
+            & > img {
+                width: 100%;
+                height: auto;
+                object-fit: contain;
+            }
+        }
+    }
+    .slot_loadScore_list_container_deco {
+        position: absolute;
+        left: 1.5rem;
+        bottom: -50%;
+        z-index: -1;
+        width: 6rem;
+        height: auto;
+        
+    }
+}
+/* 保留機台 */
+.slot_keepSlot {
+    margin-bottom: 8rem;
+
+    .slotSetMenu_Function_content_table_container_content_num {
+        width: 100%;
+        max-width: calc((100% - 38%) / 3);
+        margin-right: 0.5rem;
+        color: $text-color-yellow;
+        text-align: center;
+        font-size: 0.9rem;
+
+        & > input {
+            width: 100%;
+            background-color: rgb(84,84,84);
+            color: $text-color-yellow;
+            border: unset;
+            text-align: center;
+
+            &[type="number"]::-webkit-inner-spin-button,
+            &[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+            }
+            &[type="number"] {
+            -moz-appearance: textfield; /* Firefox */
+            }
+        }
+    }
+    &:nth-child(1) {
+        .slotSetMenu_Function_content_table_container_content {
+            font-size: 0.95rem;
+        }
+    }
+    &:nth-child(2) {
+        .slotSetMenu_Function_content_table_container_title {
+            color: $text-color-yellow;
+        }
+    }
+    &:nth-child(3) {
+        .slotSetMenu_Function_content_table_container_title {
+            color: $text-color-yellow;
+        }
+    }
+}
+/* 視訊線路 */
+.slot_line {
+    margin-bottom: 13rem;
+
+    .slotSetMenu_Function_title {
+        margin-bottom: 1.5rem;
+    }
+    .slot_line_content {
+        margin-bottom: 1.5rem;
+    }
+}
+.slot_line_content_list_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 1.5rem;
+
+    .slot_line_content_list {
+        width: auto;
+        position: relative;
+
+        &:hover::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            display: block;
+            width: 60%;
+            box-shadow: 47px 0px 18px 7px rgb(255, 184, 113);
+            opacity: 0.4;
+            mix-blend-mode: screen;
+        }
+
+    }
+    .slot_line_content_list_label {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        &:hover {
+            cursor: pointer;
+        }
+        .slot_line_content_list_input {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            display: none;
+        }
+        .slot_line_content_list_icon_container {
+            width: 2rem;
+            aspect-ratio: 1/1;
+            & > img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+        }
+        .slot_line_content_list_txt {
+            margin-left: 1rem;
+            font-size: 0.9rem;
+            color: $text-color-yellow;
+        }
+    }
+}
+/* 機台履歷 */
+.slot_record {
+    margin-bottom: 8rem;
+
+    & table {
+        width: 60%;
+    }
+    .slotSetMenu_Function_content_table_container_title {
+        text-align: left;
+        margin-right: 1.5rem;
+    }
+    .slotSetMenu_Function_content_table_container_content {
+        max-width: 44%;
+        overflow: auto;
+        color: $text-color-yellow;
+    }
+}
+
+/* 線上客服 */
+.slot_service {
+    margin-bottom: 5rem;
+    width: 100%;
+}
+.slot_service_content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 1rem;
+    
+}
+.slot_service_outLink {
+    display: flex;
+    width: 50%;
+    justify-content: center;
+    gap: 2.5rem;
+
+    & > figure {
+        width: 4rem;
+        aspect-ratio: 1/1;
+
+        & > a {
+            position: relative;
+
+            &:hover::after {
+                content: "";
+                position: absolute;
+                top: 37%;
+                left: 30%;
+                display: block;
+                width: 45%;
+                box-shadow: 0px 0px 17px 25px rgb(252, 255, 113);
+                opacity: 0.4;
+                mix-blend-mode: screen;
+            }
+        }
+
+        & img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+    }
+}
+.slot_service_qrCode {
+    display: flex;
+    justify-content: center;
+    width: 45%;
+    & > figure {
+        width: 100%;
+        height: auto;
+
+        & > a {
+            position: relative;
+
+            &:hover::after {
+                content: "";
+                position: absolute;
+                top: 40%;
+                left: 28%;
+                display: block;
+                width: 45%;
+                box-shadow: 0px 0px 40px 48px rgb(252, 255, 113);
+                opacity: 0.4;
+                mix-blend-mode: screen;
+            }
+        }
+
+        & img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+    }
+}

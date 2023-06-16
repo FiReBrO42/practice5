@@ -27,7 +27,7 @@
                         <!-- 絕對位置，定位按鈕與文本 -->
                         <div class="top_banner_ham_container">
                             <!-- 更改連結去 all.js 更改該函式 -->
-                            <button type="button" @click="() => toMenu()"></button>
+                            <button type="button" @click="slotMenuOpenSwitch()"></button>
                             <!-- 放機台名字和得分 -->
                             <div class="top_banner_ham_container_content">
                                 <div class="top_banner_ham_container_content_name">
@@ -40,13 +40,284 @@
                                 </div>
                             </div>
                             <!-- 未設定的按鈕-->
-                            <button type="button"></button>
+                            <button type="button" @click="slotSetOpenSwitch()"></button>
                         </div>
                     </div>
                     <!-- 按鈕 -->
                 </header>
 
-                <!-- 上分Menu -->
+                <!-- 左側選單 -->
+                <div class="slotMenu_container" :class="{active:slotMenuOpen}">
+                    <div class="slotMenu_bg" @click="slotMenuOpenSwitch()"></div>
+                    <div class="slotMenu d-flex">
+                        <div class="slotMenu_userInfo_container d-grid position-relative">
+                            <!-- 底圖 -->
+                            <img src="./img/02_Menu/img_memberbackground.png" alt="會員資料背景圖">
+                            <!-- 內文 -->
+                            <div class="slotMenu_userInfo">
+                                <!-- 排位圖 -->
+                                <figure class="slotMenu_userInfo_rack">
+                                    <img src="./img/02_Menu/img_badge_crystal.png" alt="會員牌位圖">
+                                    <!-- 排位名稱 -->
+                                    <figcaption>白银</figcaption>
+                                </figure>
+                                <div class="slotMenu_userInfo_content">
+                                    <div class="slotMenu_userInfo_name">
+                                        <!-- 標題 -->
+                                        <h2>会员帐号:</h2>
+                                        <!-- 名字 -->
+                                        <div>
+                                            <p>AbcdEfgHijK</p>
+                                        </div>
+                                    </div>
+                                    <div class="slotMenu_userInfo_content_money">
+                                        <!-- 錢幣icon -->
+                                        <figure class="slotMenu_userInfo_content_money_icon">
+                                            <img src="./img/02_Menu/img_chips.png" alt="金幣ICON圖">
+                                        </figure>
+                                        <!-- 金額 -->
+                                        <p>1234567890</p>
+                                        <!-- + icon 按鈕 -->
+                                        <div class="slotMenu_userInfo_content_money_btn">
+                                            <a href="">
+                                                <img src="./img/02_Menu/img_stored.png" alt="+ ICON圖">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slotMenu_expendList">
+                            <ul class="slotMenu_expendList_container">
+                                <!-- 遊戲中 -->
+                                <li>
+                                    <!-- 展開 按鈕 -->
+                                    <div class="slotMenu_expendList_game_btn_container position-relative"
+                                        @click="menuBtnOn( 'gaming','0' )">
+                                        <img src="./img/02_Menu/btn/btn_ingame.png" alt="遊戲中機台按鈕">
+                                        <!-- 根據資料確認是否點選開啟 -->
+                                        <div class="slotMenu_expendList_game_btn_icon"
+                                            :class="{ active: menuBtnList.gaming.active }">
+                                            <img src="./img/img_switch_open.png" alt="切換開啟按鈕">
+                                        </div>
+                                    </div>
+                                    <!-- 內容 -->
+                                    <div class="slotMenu_expendList_game_list_container"
+                                        :class="{ active: menuBtnList.gaming.active }">
+                                        <ul class="slotMenu_expendList_game_list">
+                                            <!-- 遊戲列表 -->
+                                            <li>
+                                                <a href="">
+                                                    <div>
+                                                        <img src="./img/01_Lobby/game_icon/img_sloticon_01.png"
+                                                            alt="遊戲icon">
+                                                    </div>
+                                                    <p>AbcdEfg-0000-1:1</p>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <!-- 保留 -->
+                                <li>
+                                    <!-- 展開 按鈕 -->
+                                    <div class="slotMenu_expendList_game_btn_container position-relative"
+                                        @click="menuBtnOn( 'reserve','1' )">
+                                        <img src="./img/02_Menu/btn/btn_keepgame.png" alt="保留機台按鈕">
+                                        <!-- 根據資料確認是否點選開啟 -->
+                                        <div class="slotMenu_expendList_game_btn_icon"
+                                            :class="{ active: menuBtnList.reserve.active }">
+                                            <img src="./img/img_switch_open.png" alt="切換開啟按鈕">
+                                        </div>
+                                    </div>
+                                    <!-- 內容 -->
+                                    <div class="slotMenu_expendList_game_list_container"
+                                        :class="{ active: menuBtnList.reserve.active }">
+                                        <ul class="slotMenu_expendList_game_list">
+                                            <!-- 遊戲列表 -->
+                                            <li>
+                                                <a href="">
+                                                    <div>
+                                                        <img src="./img/01_Lobby/game_icon/img_sloticon_01.png"
+                                                            alt="遊戲icon">
+                                                    </div>
+                                                    <p>AbcdEfg-0000-1:1</p>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <!-- 收藏 -->
+                                <li>
+                                    <!-- 展開 按鈕 -->
+                                    <div class="slotMenu_expendList_game_btn_container position-relative"
+                                        @click="menuBtnOn( 'collect','2' )">
+                                        <img src="./img/02_Menu/btn/btn_favoritegame.png" alt="收藏機台按鈕">
+                                        <!-- 根據資料確認是否點選開啟 -->
+                                        <div class="slotMenu_expendList_game_btn_icon"
+                                            :class="{ active: menuBtnList.collect.active }">
+                                            <img src="./img/img_switch_open.png" alt="切換開啟按鈕">
+                                        </div>
+                                    </div>
+                                    <!-- 內容 -->
+                                    <div class="slotMenu_expendList_game_list_container"
+                                        :class="{ active: menuBtnList.collect.active }">
+                                        <ul class="slotMenu_expendList_game_list">
+                                            <!-- 遊戲列表 -->
+                                            <li>
+                                                <a href="">
+                                                    <div>
+                                                        <img src="./img/01_Lobby/game_icon/img_sloticon_01.png"
+                                                            alt="遊戲icon">
+                                                    </div>
+                                                    <p>AbcdEfg-0000-1:1</p>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="">
+                                                    <div>
+                                                        <img src="./img/01_Lobby/game_icon/img_sloticon_01.png"
+                                                            alt="遊戲icon">
+                                                    </div>
+                                                    <p>AbcdEfg-0000-1:1</p>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="">
+                                                    <div>
+                                                        <img src="./img/01_Lobby/game_icon/img_sloticon_01.png"
+                                                            alt="遊戲icon">
+                                                    </div>
+                                                    <p>AbcdEfg-0000-1:1</p>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="">
+                                                    <div>
+                                                        <img src="./img/01_Lobby/game_icon/img_sloticon_01.png"
+                                                            alt="遊戲icon">
+                                                    </div>
+                                                    <p>AbcdEfg-0000-1:1</p>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="">
+                                                    <div>
+                                                        <img src="./img/01_Lobby/game_icon/img_sloticon_01.png"
+                                                            alt="遊戲icon">
+                                                    </div>
+                                                    <p>AbcdEfg-0000-1:1</p>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="">
+                                                    <div>
+                                                        <img src="./img/01_Lobby/game_icon/img_sloticon_01.png"
+                                                            alt="遊戲icon">
+                                                    </div>
+                                                    <p>AbcdEfg-0000-1:1</p>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+
+                        </div>
+                        <div class="slotMenu_close">
+                            <button type="button" class="slotMenu_close_btn" @click="slotMenuLogout()">
+                                <img src="./img/08_Slot/slot_Info/btn_logout.png" alt="離開機台">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 右側設定 -->
+                <div class="slotSetMenu_container d-flex" :class="{active:slotSetOpen}">
+                    <!-- 黑底背景 -->
+                    <div class="slotSetMenu_bg" @click="slotSetOpenSwitch()"></div>
+                    <!-- 選單 -->
+                    <div class="slotSetMenu d-flex">
+                        <!-- 頂端遊戲資訊 -->
+                        <div class="slotSetMenu_title_container d-flex">
+                            <!-- 遊戲圖 -->
+                            <div class="slotSetMenu_title_game">
+                                <img src="/img/01_Lobby/game_icon/img_sloticon_01.png" alt="遊戲圖">
+                            </div>
+                            <!-- 機台內容 -->
+                            <div class="slotSetMenu_title_content d-flex">
+                                <div class="slotSetMenu_title_content_gameName">
+                                    <p>机台:H340-2:1</p>
+                                </div>
+                                <div class="slotSetMenu_title_content_score">
+                                    <p>比值:1:1</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 各功能選單 -->
+                        <ul class="slotSetMenu_list_container d-flex">
+                            <template v-for="(item, index) in slotSetMenu" :key="index">
+                                <li class="slotSetMenu_list"
+                                    :class="{btn_collectslot_active :item.name === '收藏機台'&& item.active}">
+                                    <button type="button" class="slotSetMenu_list_btn"
+                                        @click="slotSetMenuSwitch(item.name)">
+                                        <img :src="item.name!=='收藏機台'?item.imgUrl:item.active?'/img/08_Slot/slot_Info/btn_collected.png':item.imgUrl"
+                                            :alt="item.name">
+                                    </button>
+                                </li>
+                            </template>
+
+                            <!--                             <li class="slotSetMenu_list">
+                                <button type="button" class="slotSetMenu_list_btn">
+                                    <img src="./img/08_Slot/slot_Info/btn_loadscore.png" alt="機台下分">
+                                </button>
+                            </li>
+                            <li class="slotSetMenu_list">
+                                <button type="button" class="slotSetMenu_list_btn">
+                                    <img src="./img/08_Slot/slot_Info/btn_keepslot.png" alt="保留機台">
+                                </button>
+                            </li>
+                            <li class="slotSetMenu_list" >
+                                <button type="button" class="slotSetMenu_list_btn">
+                                    <img src="./img/08_Slot/slot_Info/btn_collectslot.png" alt="收藏機台">
+                                </button>
+                            </li>
+                            <li class="slotSetMenu_list">
+                                <button type="button" class="slotSetMenu_list_btn">
+                                    <img src="./img/08_Slot/slot_Info/btn_line.png" alt="視訊線路">
+                                </button>
+                            </li>
+                            <li class="slotSetMenu_list">
+                                <button type="button" class="slotSetMenu_list_btn">
+                                    <img src="./img/08_Slot/slot_Info/btn_record.png" alt="機台履歷">
+                                </button>
+                            </li>
+                            <li class="slotSetMenu_list">
+                                <button type="button" class="slotSetMenu_list_btn">
+                                    <img src="./img/08_Slot/slot_Info/btn_direction.png" alt="機台攻略">
+                                </button>
+                            </li>
+                            <li class="slotSetMenu_list">
+                                <button type="button" class="slotSetMenu_list_btn">
+                                    <img src="./img/08_Slot/slot_Info/btn_reset.png" alt="機台重整">
+                                </button>
+                            </li>
+                            <li class="slotSetMenu_list">
+                                <button type="button" class="slotSetMenu_list_btn">
+                                    <img src="./img/08_Slot/slot_Info/btn_service.png" alt="線上客服">
+                                </button>
+                            </li> -->
+                        </ul>
+                        <!-- 關閉按鈕 -->
+                        <div class="slotSetMenu_close">
+                            <button type="button" class="slotSetMenu_close_btn" @click="slotSetLeave()">
+                                <img src="./img/08_Slot/slot_Info/btn_leave.png" alt="離開機台">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- 以下為各功能選單 -->
+                    <!-- 上分Menu -->
                 <div class="slot_main_onScoreMenu" :class="{show:onScoreMenu}">
                     <!-- 黑色背景 -->
                     <div class="slot_main_onScoreMenu_bg" @click="() => onScoreMenuSwitch()"></div>
@@ -79,6 +350,198 @@
                             <img src="./img/08_Slot/img_confirm.png" alt="">
                             <!-- 確認按鈕，需至all.js調整，包含點擊後關閉menu -->
                             <button type="button" @click="() => confirmOnScore()"></button>
+                        </div>
+                    </div>
+                </div>
+                    <!-- 下分Menu -->
+                <div class="slotSetMenu_Function " :class="{show:slotSetMenu[1].active}">
+                    <!-- 黑底背景 -->
+                    <div class="slotSetMenu_Function_bg"></div>
+                    <!-- 主要內容 -->
+                    <div class="slotSetMenu_Function_content slot_loadScore">
+                        <ul class="slot_loadScore_list_container">
+                            <div class="slot_loadScore_list_container_deco"><img
+                                    src="/img/08_Slot/slot_Info/img_loadscore_bg.png" alt="裝飾物"></div>
+                            <li>
+                                <button type="button">
+                                    <img src="/img/08_Slot//slot_Info/btn_loadscore_stand.png" alt="下分繼續">
+                                </button>
+                            </li>
+                            <li>
+                                <button type="button">
+                                    <img src="/img/08_Slot//slot_Info/btn_loadscore_leave.png" alt="下分離開">
+                                </button>
+                            </li>
+                            <li>
+                                <button type="button" @click="slotSetMenuFunction('機台下分')">
+                                    <img src="/img/08_Slot//slot_Info/btn_loadscore_cancel.png" alt="取消下分">
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                    <!-- 保留機台 -->
+                <div class="slotSetMenu_Function " :class="{show:slotSetMenu[2].active}">
+                    <!-- 黑底背景 -->
+                    <div class="slotSetMenu_Function_bg"></div>
+                    <!-- 主要內容 -->
+                    <div class="slotSetMenu_Function_content_container slot_keepSlot">
+                        <!-- 標題圖 -->
+                        <div class="slotSetMenu_Function_title">
+                            <img src="/img/08_Slot/slot_Info/img_keepslot_title.png" alt="保留機台">
+                        </div>
+                        <!-- 內容區 -->
+                        <div class="slotSetMenu_Function_content slot_keepSlot_content">
+                            <div class="slotSetMenu_Function_content_bg"><img
+                                    src="/img/08_Slot/slot_Info/img_info_bg.png" alt="內容框"></div>
+                            <!-- 內部內容 -->
+                            <div class="slotSetMenu_Function_content_table_container">
+                                <table>
+                                    <!-- 第一行 -->
+                                    <tr>
+                                        <td class="slotSetMenu_Function_content_table_container_title">贡献度</td>
+                                        <td class="slotSetMenu_Function_content_table_container_content">123456789</td>
+                                    </tr>
+                                    <!-- 第二行 -->
+                                    <tr>
+                                        <td class="slotSetMenu_Function_content_table_container_title">可保留时间</td>
+                                        <td class="slotSetMenu_Function_content_table_container_content_num">99999</td>
+                                        <td class="slotSetMenu_Function_content_table_container_content">分钟</td>
+                                    </tr>
+                                    <!-- 第三行 -->
+                                    <tr>
+                                        <td class="slotSetMenu_Function_content_table_container_title">保留</td>
+                                        <td class="slotSetMenu_Function_content_table_container_content_num">
+                                            <input type="number" class="" value="99999">
+                                        </td>
+                                        <td class="slotSetMenu_Function_content_table_container_content">分钟</td>
+                                    </tr>
+                                </table>
+
+                            </div>
+                        </div>
+                        <!-- 確認按鈕 -->
+                        <div class="slotSetMenu_Function_btn">
+                            <button type="button" @click="slotSetMenuFunction('保留機台')">
+                                <img src="/img/08_Slot/slot_Info/btn_confirm.png" alt="確認icon">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                    <!-- 視訊線路 -->
+                <div class="slotSetMenu_Function " :class="{show:slotSetMenu[4].active}">
+                    <!-- 黑底背景 -->
+                    <div class="slotSetMenu_Function_bg"></div>
+                    <!-- 主要內容 -->
+                    <div class="slotSetMenu_Function_content_container slot_line">
+                        <!-- 標題圖 -->
+                        <div class="slotSetMenu_Function_title">
+                            <img src="/img/08_Slot/slot_Info/img_line_title.png" alt="機台履歷">
+                        </div>
+                        <div class="slotSetMenu_Function_content slot_line_content">
+                            <!-- 內部內容 -->
+                            <ul class="slot_line_content_list_container">
+                                <!-- 線路選項 -->
+                                <template v-for="(item, index) in slotLine" :key="index">
+                                    <li class="slot_line_content_list">
+                                        <label :for="index" class="slot_line_content_list_label">
+                                            <input type="radio" :id="index" name="slot_line_input"
+                                                class="slot_line_content_list_input" :value="item.name"
+                                                v-model="slotLineArray" @change="slotLineSwitch(index)"
+                                                :checked="index === 0">
+                                            <div class="slot_line_content_list_icon_container">
+                                                <img v-if="item.active === false"
+                                                    src="/img/08_Slot/slot_Info/img_empty_icon.png" alt="未選取icon">
+                                                <img v-else src="/img/08_Slot/slot_Info/img_fill_icon.png"
+                                                    alt="已選取icon">
+                                            </div>
+                                            <div class="slot_line_content_list_txt">
+                                                <p>{{item.name}}</p>
+                                            </div>
+                                        </label>
+                                    </li>
+                                </template>
+
+                            </ul>
+                        </div>
+                        <!-- 確認按鈕 -->
+                        <div class="slotSetMenu_Function_btn">
+                            <button type="button" @click="slotSetMenuFunction('視訊線路')">
+                                <img src="/img/08_Slot/slot_Info/btn_confirm.png" alt="確認icon">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                    <!-- 機台履歷 -->
+                <div class="slotSetMenu_Function " :class="{show:slotSetMenu[5].active}">
+                    <!-- 黑底背景 -->
+                    <div class="slotSetMenu_Function_bg"></div>
+                    <!-- 主要內容 -->
+                    <div class="slotSetMenu_Function_content_container slot_record">
+                        <!-- 標題圖 -->
+                        <div class="slotSetMenu_Function_title">
+                            <img src="/img/08_Slot/slot_Info/img_record_title.png" alt="機台履歷">
+                        </div>
+                        <!-- 內容 -->
+                        <div class="slotSetMenu_Function_content slot_record_content">
+                            <div class="slotSetMenu_Function_content_bg"><img
+                                    src="/img/08_Slot/slot_Info/img_info_bg.png" alt="內容框"></div>
+                            <!-- 內部內容 -->
+                            <div class="slotSetMenu_Function_content_table_container">
+                                <table>
+                                    <tr>
+                                        <td class="slotSetMenu_Function_content_table_container_title">压分</td>
+                                        <td class="slotSetMenu_Function_content_table_container_content">999999999</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="slotSetMenu_Function_content_table_container_title">得分</td>
+                                        <td class="slotSetMenu_Function_content_table_container_content">999999999</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="slotSetMenu_Function_content_table_container_title">机台分数</td>
+                                        <td class="slotSetMenu_Function_content_table_container_content">999999999</td>
+                                    </tr>
+                                </table>
+
+                            </div>
+                        </div>
+                        <!-- 確認按鈕 -->
+                        <div class="slotSetMenu_Function_btn">
+                            <button type="button" @click="slotSetMenuFunction('機台履歷')">
+                                <img src="/img/08_Slot/slot_Info/btn_confirm.png" alt="確認icon">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                    <!-- 線上客服 -->
+                <div class="slotSetMenu_Function " :class="{show:slotSetMenu[8].active}">
+                    <!-- 黑底背景 可關閉 -->
+                    <div class="slotSetMenu_Function_bg" @click="slotSetMenuFunction('線上客服')"></div>
+                    <!-- 主要內容 -->
+                    <div class="slotSetMenu_Function_content_container slot_service">
+                        <div class="slotSetMenu_Function_content slot_service_content">
+                            <!-- 內部內容 -->
+                                <!-- 第一行 -->
+                            <div class="slot_service_outLink">
+                                <figure>
+                                    <a href="">
+                                        <img src="/img/06_Service/btn/btn_wechat.png" alt="微信">
+                                    </a>
+                                </figure>
+                                <figure>
+                                    <a href="">
+                                        <img src="/img/06_Service/btn/btn_telegram.png" alt="telegram">
+                                    </a>
+                                </figure>
+                            </div>
+                            <!-- 第二行 -->
+                            <div class="slot_service_qrCode">
+                                <figure>
+                                    <a href="">
+                                        <img src="/img/06_Service/img_qrcodebackground.png" alt="客服端QRCODE">
+                                    </a>
+                                </figure>
+                            </div>
                         </div>
                     </div>
                 </div>

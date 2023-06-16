@@ -100,9 +100,89 @@ Vue.createApp({
         gameRecord: false,
         convertRecord: false
       },
+
       /* slot.html 新增 */
       onScoreMenu:false,
-      sliderValue: 999999999
+      sliderValue: 999999999,
+
+      /* slot Info Menu 新增 */
+        /* 右側setMenu */
+      slotSetOpen:false,
+      slotSetMenu:[
+        {
+          name:'機台上分',
+          imgUrl:"/img/08_Slot/slot_Info/btn_upscore.png",
+          active:false,
+        },
+        {
+          name:'機台下分',
+          imgUrl:"/img/08_Slot/slot_Info/btn_loadscore.png",
+          active:false,
+        },
+        {
+          name:'保留機台',
+          imgUrl:"/img/08_Slot/slot_Info/btn_keepslot.png",
+          active:false,
+        },
+        {
+          name:'收藏機台',
+          imgUrl:"/img/08_Slot/slot_Info/btn_collectslot.png",
+          active:false,
+          
+        },
+        {
+          name:'視訊線路',
+          imgUrl:"/img/08_Slot/slot_Info/btn_line.png",
+          active:false,
+        },
+        {
+          name:'機台履歷',
+          imgUrl:"/img/08_Slot/slot_Info/btn_record.png",
+          active:false,
+        },
+        {
+          name:'機台攻略',
+          imgUrl:"/img/08_Slot/slot_Info/btn_direction.png",
+          active:false,
+        },
+        {
+          name:'機台重整',
+          imgUrl:"/img/08_Slot/slot_Info/btn_reset.png",
+          active:false,
+        },
+        {
+          name:'線上客服',
+          imgUrl:"/img/08_Slot/slot_Info/btn_service.png",
+          active:false,
+        },
+        
+      ],
+        /* 視訊線路 */
+      slotLine:[
+        {
+          name:'视讯线路1',
+          active:true,
+        },
+        {
+          name:'视讯线路2',
+          active:false,
+        },
+        {
+          name:'视讯线路3',
+          active:false,
+        },
+        {
+          name:'视讯线路4',
+          active:false,
+        },
+        {
+          name:'视讯线路5',
+          active:false,
+        }
+      ],
+      slotLineArray:['视讯线路1'],
+        /* 左側menu */
+      slotMenuOpen:false
     }
   },
   methods: {
@@ -146,7 +226,7 @@ Vue.createApp({
     toMenu() {
       window.location = './menu.html'
     },
-    menuBtnOn(name) {
+    menuBtnOn(name,index) {
       // 把當前點擊的 item 的 active 設為 true
       if (this.menuBtnList[name].active === false) {
         this.menuBtnList[name].active = true
@@ -155,16 +235,13 @@ Vue.createApp({
         //判斷如果當前是 true ，則改成false 來關閉
         this.menuBtnList[name].active = false
       }
-
+      
       // 如果其他 newList 的 active 有 true的 都設為 false，並保留當前這個選項的true
-      /*      for (let i = 0; i < this.menuBtnList.length; i++) {
-                if (this.menuBtnList[i].active === true) {
-                    this.menuBtnList[i].active = false;
-                    this.menuBtnList[index].active = true
-                    console.log('4',this.menuBtnList[index].active);
-                
-                }
-            } */
+      for (let key in this.menuBtnList) {
+        if (key !== name && this.menuBtnList[key].active === true) {
+          this.menuBtnList[key].active = false;
+        }
+      }
     },
     enterGame() {
       window.location = './gameVideo.html'
@@ -245,6 +322,7 @@ Vue.createApp({
     changePasswordBtn() {
       window.location = './member.html'
     },
+
     /* slot.html 新增 */
     onScoreMenuSwitch () {
       this.onScoreMenu = !this.onScoreMenu
@@ -254,6 +332,132 @@ Vue.createApp({
     },
     setSliderValue(value) {
       this.sliderValue = parseInt(value);
+    },
+
+    /* slot Info Menu */
+      /* slot set */
+    slotSetOpenSwitch(){
+      this.slotSetOpen = !this.slotSetOpen
+    },
+    slotSetLeave(){
+      alert('離開機台')
+      this.slotSetOpen = !this.slotSetOpen
+      window.location = './index.html'
+    },
+      /* setMenu切換按鈕 開啟各選單 */
+    slotSetMenuSwitch(name){
+      this.slotSetMenu.forEach((item,index)=>{
+        if(item.name === name ) {
+          item.active = !item.active
+          console.log(item);
+        }
+      })
+      //機台上分
+      if( name === '機台上分'){
+        this.onScoreMenu = !this.onScoreMenu
+        this.slotSetOpen = !this.slotSetOpen
+      }
+      //機台下分
+      if( name === '機台下分'){
+        this.slotSetOpen = !this.slotSetOpen
+      }
+      //保留機台
+      if( name === '保留機台'){
+        this.slotSetOpen = !this.slotSetOpen
+      }
+      //收藏機台
+      if( name === '收藏機台'){
+        return
+      }
+      //視訊線路
+      if( name === '視訊線路'){
+        this.slotSetOpen = !this.slotSetOpen
+      }
+      //機台履歷
+      if( name === '機台履歷'){
+        this.slotSetOpen = !this.slotSetOpen
+      }
+      //機台攻略
+      if( name === '機台攻略'){
+        this.slotSetOpen = !this.slotSetOpen
+      }
+      //機台重整
+      if( name === '機台重整'){
+        this.slotSetOpen = !this.slotSetOpen
+      }
+      //線上客服
+      if( name === '線上客服'){
+        this.slotSetOpen = !this.slotSetOpen
+      }
+    },
+      /* setMenu各選單 確認按鈕與 預留操作空間 */
+    slotSetMenuFunction(name){
+      this.slotSetMenu.forEach((item,index)=>{
+        if(item.name === name ) {
+          item.active = !item.active
+          console.log(item);
+        }
+      })
+      //機台上分
+      if( name === '機台上分'){
+        this.onScoreMenu = !this.onScoreMenu
+
+      }
+      //機台下分
+      if( name === '機台下分'){
+
+      }
+      //保留機台
+      if( name === '保留機台'){
+
+      }
+      //收藏機台
+      if( name === '收藏機台'){
+        return
+      }
+      //視訊線路
+      if( name === '視訊線路'){
+
+      }
+      //機台履歷
+      if( name === '機台履歷'){
+
+      }
+      //機台攻略
+      if( name === '機台攻略'){
+
+      }
+      //機台重整
+      if( name === '機台重整'){
+
+      }
+      //線上客服
+      if( name === '線上客服'){
+
+      }
+    },
+      /* slotSetMenu 視訊線路切換 */
+    slotLineSwitch( index ) {
+      this.slotLine.forEach((item,i)=> {
+        if(i === index ){
+          item.active = !item.active
+          console.log(this.slotLine);
+          console.log(item);
+          console.log(this.slotLineArray);
+        }else {
+          item.active = false
+        }
+      })
+    },
+      /* slotMenu 左側切換 */
+    slotMenuOpenSwitch(){
+      this.slotMenuOpen = !this.slotMenuOpen
+    },
+      /* slotMenu登出 */
+    slotMenuLogout(){
+      alert('登出')
+      this.slotMenuOpen = !this.slotMenuOpen
+      window.location = './login.html'
     }
   },
   mounted() {

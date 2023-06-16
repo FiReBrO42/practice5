@@ -1,11 +1,12 @@
 /* scss 匯入 */
+@import './_variables.scss';
 @import './_news.scss';
 @import './_login.scss';
 @import './_menu.scss';
-@import './_variables.scss';
 @import './_game.scss';
 @import './_member.scss';
 @import './_slot.scss';
+@import './slotMenu.scss';
 
 /* 初始化 */
 *{
