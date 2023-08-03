@@ -17,6 +17,27 @@
 <body>
     <div id="app">
         <main class="w-100 h-auto d-grid">
+            <!-- loading 畫面 -->
+            <div class="loading_container">
+                <div >
+                    <div class="loading_img_container">
+                        <img class="loading_img animateLeft" id="loading_img_left" src="/img/img_fortune_left.png" alt="讀取畫面財神" @animationend="animationEnd($event)">
+                        <img class="loading_img" id="loading_img_right" src="/img/img_fortune_right.png" alt="讀取畫面財神" @animationend="animationEnd($event)">
+                    </div>
+                    <div class="loading_txt">
+                        <p id="loading_txt_l">L</p>
+                        <p id="loading_txt_o">o</p>
+                        <p id="loading_txt_a">a</p>
+                        <p id="loading_txt_d">d</p>
+                        <p id="loading_txt_i">i</p>
+                        <p id="loading_txt_n">n</p>
+                        <p id="loading_txt_g">g</p>
+                        <p id="loading_txt_dot1">.</p>
+                        <p id="loading_txt_dot2">.</p>
+                        <p id="loading_txt_dot3">.</p>
+                    </div>
+                </div>
+            </div>
             <!-- 中間顯示圖 -->
             <div class="main_contain position-relative">
                 <!-- header -->

@@ -17,6 +17,27 @@
 <body>
     <div id="app">
         <main class="w-100 h-auto d-grid">
+            <!-- loading 畫面 -->
+            <div class="loading_container">
+                <div >
+                    <div class="loading_img_container">
+                        <img class="loading_img animateLeft" id="loading_img_left" src="/img/img_fortune_left.png" alt="讀取畫面財神" @animationend="animationEnd($event)">
+                        <img class="loading_img" id="loading_img_right" src="/img/img_fortune_right.png" alt="讀取畫面財神" @animationend="animationEnd($event)">
+                    </div>
+                    <div class="loading_txt">
+                        <p id="loading_txt_l">L</p>
+                        <p id="loading_txt_o">o</p>
+                        <p id="loading_txt_a">a</p>
+                        <p id="loading_txt_d">d</p>
+                        <p id="loading_txt_i">i</p>
+                        <p id="loading_txt_n">n</p>
+                        <p id="loading_txt_g">g</p>
+                        <p id="loading_txt_dot1">.</p>
+                        <p id="loading_txt_dot2">.</p>
+                        <p id="loading_txt_dot3">.</p>
+                    </div>
+                </div>
+            </div>
             <!-- 中間顯示圖 -->
             <div class="main_contain position-relative">
                 <!-- header -->
@@ -67,7 +88,7 @@
                                 <!-- all.js 模擬資料 渲染-->
                                 <template v-for="(item, index) in itemProduct" :key="index">
                                     <!-- 判斷是否被點選-->
-                                    <li class="position-relative" :class="{ active : item.category === 'gaming'}">
+                                    <li class="position-relative" :class="{ active : item.category === 'gaming','big-item': index === 0 && item.category === 'gaming'}">
                                         <a :href="item.link">
                                             <img :src="item.imageUrl" :alt="item.imageAlt">
                                             <div class="selectMachine_game_sub">
@@ -111,31 +132,31 @@
                                 <li @click="filterMachine('all')">
                                     <!-- 如果是 選取已選取點選 狀態，則使用這個圖 -->
                                     <div v-if="machineCategory.all">
-                                        <img src="./img/04_Games/btn/btn_alltable.png" alt="全部分類">
+                                        <img src="./img/04_Games/btn/btn_alltable_active.png" alt="全部分類">
                                     </div>
                                     <!-- 如果是 未選取點選 狀態，則使用這個圖 -->
                                     <div v-else>
-                                        <img src="./img/04_Games/btn/btn_available.png" alt="全部分類">
+                                        <img src="./img/04_Games/btn/btn_alltable.png" alt="全部分類">
                                     </div>
                                 </li>
                                 <li @click="filterMachine('available')">
                                     <!-- 如果是 選取已選取點選 狀態，則使用這個圖 -->
                                     <div v-if="machineCategory.available">
-                                        <img src="./img/04_Games/btn/btn_alltable.png" alt="空機台分類">
+                                        <img src="./img/04_Games/btn/btn_available_active.png" alt="空機台分類">
                                     </div>
                                     <!-- 如果是 未選取點選 狀態，則使用這個圖 -->
                                     <div v-else>
-                                        <img src="./img/04_Games/btn/btn_available.png" alt="全部分類">
+                                        <img src="./img/04_Games/btn/btn_available.png" alt="空機台分類">
                                     </div>
                                 </li>
                                 <li @click="filterMachine('gaming')">
                                     <!-- 如果是 選取已選取點選 狀態，則使用這個圖 -->
                                     <div v-if="machineCategory.gaming">
-                                        <img src="./img/04_Games/btn/btn_alltable.png" alt="遊戲中分類">
+                                        <img src="./img/04_Games/btn/btn_gaming_active.png" alt="遊戲中分類">
                                     </div>
                                     <!-- 如果是 未選取點選 狀態，則使用這個圖 -->
                                     <div v-else>
-                                        <img src="./img/04_Games/btn/btn_gaming.png" alt="全部分類">
+                                        <img src="./img/04_Games/btn/btn_gaming.png" alt="遊戲中分類">
                                     </div>
                                 </li>
                             </ul>

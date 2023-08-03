@@ -708,27 +708,44 @@
 }
 
 .selectMachine_top {
-  width: 58%;
-  height: 66%;
+  width: 70%;
+  height: 69%;
   overflow-y: scroll;
   padding: 1rem 0;
+  translate: 0 2%;
 }
 
 .selectMachine_top_list_container {
-  display: flex;
+  /*     display: flex;
+      flex-wrap: wrap;
+      justify-content:flex-start; */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
   width: 100%;
-  flex-wrap: wrap;
-  justify-content: flex-start;
 }
 .selectMachine_top_list_container li {
-  width: 28.5714285714%;
+  grid-column-end: span 1;
+  grid-row-end: span 1;
+  min-width: 4.75rem;
+  /*         width: calc(100% / 3.5);
+          margin: 5px 5px; */
   border-radius: 8px;
   border: 1px solid white;
-  margin: 5px 5px;
+}
+.selectMachine_top_list_container li.big-item {
+  grid-column-end: span 2;
+  grid-row-end: span 2;
+}
+.selectMachine_top_list_container li a {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 .selectMachine_top_list_container li a img {
   aspect-ratio: 1/1;
   width: 100%;
+  height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 8px;
@@ -742,23 +759,27 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: flex-end;
   align-items: center;
+  overflow: auto;
 }
 .selectMachine_game_sub h2 {
   -webkit-text-stroke: 0.3px black; /* Safari 和 Chrome */
   color: yellow;
   font-size: 0.9rem;
   font-weight: 600;
+  text-align: center;
 }
 .selectMachine_game_sub p {
   -webkit-text-stroke: 0.3px black; /* Safari 和 Chrome */
   color: white;
   font-size: 0.9rem;
   font-weight: 600;
+  text-align: center;
 }
 .selectMachine_game_sub p:nth-child(1) {
   visibility: hidden;
+  text-align: center;
 }
 
 .selectMachine_top_list_container li.active .selectMachine_game_sub_state {
@@ -2574,6 +2595,149 @@
      object-fit: contain;
 }
 
+.loading_container {
+  position: absolute;
+  inset: 0;
+  z-index: 999;
+  background-color: black;
+  display: grid;
+  place-items: center;
+}
+.loading_container > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* 背景圖只有手機板的大小*/
+}
+@media (max-width: 426px) {
+  .loading_container > div {
+    margin-bottom: 30vh;
+  }
+}
+@media (min-width: 426px) {
+  .loading_container > div {
+    margin-bottom: unset;
+  }
+}
+
+.loading_img_container {
+  position: relative;
+}
+
+.loading_img {
+  width: 5rem;
+  height: auto;
+  -o-object-fit: contain;
+     object-fit: contain;
+  transition: all 0.3s ease;
+  visibility: hidden;
+}
+.loading_img:nth-child(1) {
+  scale: 1 1;
+  translate: -100%;
+}
+.loading_img:nth-child(2) {
+  position: absolute;
+  top: 0;
+  scale: 0 1;
+  translate: 100%;
+}
+
+.animateLeft {
+  animation: loading_ani_img_left 2s 0.2s linear;
+}
+
+.animateRight {
+  animation: loading_ani_img_right 2s linear;
+}
+
+@keyframes loading_ani_img_left {
+  0% {
+    visibility: visible;
+    scale: 0 1;
+    translate: -100%;
+  }
+  10% {
+    scale: 1 1;
+    translate: -100%;
+  }
+  90% {
+    translate: 100%;
+    scale: 1 1;
+  }
+  100% {
+    translate: 100%;
+    scale: 0 1;
+  }
+}
+@keyframes loading_ani_img_right {
+  0% {
+    visibility: visible;
+    scale: 0 1;
+    translate: 100%;
+  }
+  10% {
+    scale: 1 1;
+    translate: 100%;
+  }
+  90% {
+    translate: -100%;
+    scale: 1 1;
+  }
+  100% {
+    translate: -100%;
+    scale: 0 1;
+  }
+}
+.loading_txt {
+  margin-top: 1.5rem;
+  display: flex;
+  color: white;
+  font-size: 2rem;
+  gap: 3px;
+}
+.loading_txt p:nth-child(1) {
+  animation: loading_ani_txt 1.8s 0.2s linear infinite;
+}
+.loading_txt p:nth-child(2) {
+  animation: loading_ani_txt 1.8s 0.3s linear infinite;
+}
+.loading_txt p:nth-child(3) {
+  animation: loading_ani_txt 1.8s 0.4s linear infinite;
+}
+.loading_txt p:nth-child(4) {
+  animation: loading_ani_txt 1.8s 0.5s linear infinite;
+}
+.loading_txt p:nth-child(5) {
+  animation: loading_ani_txt 1.8s 0.6s linear infinite;
+}
+.loading_txt p:nth-child(6) {
+  animation: loading_ani_txt 1.8s 0.7s linear infinite;
+}
+.loading_txt p:nth-child(7) {
+  animation: loading_ani_txt 1.8s 0.8s linear infinite;
+}
+.loading_txt p:nth-child(8) {
+  animation: loading_ani_txt 1.8s 0.9s linear infinite;
+}
+.loading_txt p:nth-child(9) {
+  animation: loading_ani_txt 1.8s 1s linear infinite;
+}
+.loading_txt p:nth-child(10) {
+  animation: loading_ani_txt 1.8s 1.1s linear infinite;
+}
+
+@keyframes loading_ani_txt {
+  0% {
+    translate: 0 -50%;
+  }
+  20% {
+    translate: 0;
+  }
+  100% {
+    translate: 0;
+  }
+}
 /* 初始化 */
 * {
   margin: 0%;
@@ -2658,6 +2822,16 @@ main {
 @media (min-width: 426px) {
   main {
     background-size: 425px 840.03px;
+  }
+}
+@media (max-height: 841px) {
+  main {
+    position: relative;
+  }
+}
+@media (min-height: 842px) {
+  main {
+    position: unset;
   }
 }
 /* lobby.html */

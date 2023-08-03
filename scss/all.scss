@@ -7,6 +7,7 @@
 @import './_member.scss';
 @import './_slot.scss';
 @import './slotMenu.scss';
+@import './loading.scss';
 
 /* 初始化 */
 *{
@@ -69,6 +70,7 @@ table {
 }
 /* 背景圖更改地方 */
 main  {
+
     background-image: url(../img/img_background.jpg);
     background-repeat: no-repeat;
     background-size: 100% 840.03px;
@@ -85,6 +87,17 @@ main  {
         background-size: 425px 840.03px;
     }
 }
+@media (max-height:841px)  {
+    main  {
+        position: relative;
+    }
+}
+@media (min-height:842px)  {
+    main  {
+        position: unset;
+    }
+}
+
 /* lobby.html */
 .main_contain {
     width : 375px;
