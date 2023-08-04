@@ -1767,7 +1767,7 @@
 }
 
 .slotMenu {
-  background-image: url(/img/08_Slot/slot_Info/img_playermenu_bg.png);
+  background-image: url(../img/08_Slot/slot_Info/img_playermenu_bg.png);
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -2105,7 +2105,7 @@
 }
 
 .slotSetMenu {
-  background-image: url(/img/08_Slot/slot_Info/img_soltinfo_bg.png);
+  background-image: url(../img/08_Slot/slot_Info/img_soltinfo_bg.png);
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -2120,7 +2120,7 @@
 }
 
 .slotSetMenu_title_container {
-  background-image: url(/img/08_Slot/slot_Info/img_slotinfo.png);
+  background-image: url(../img/08_Slot/slot_Info/img_slotinfo.png);
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -2201,7 +2201,7 @@
   z-index: 9;
   width: 3rem;
   aspect-ratio: 1/1;
-  background-image: url(/img/08_Slot/slot_Info/img_collected_icon.png);
+  background-image: url(../img/08_Slot/slot_Info/img_collected_icon.png);
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;

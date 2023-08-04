@@ -263,7 +263,7 @@
                         <div class="slotSetMenu_title_container d-flex">
                             <!-- 遊戲圖 -->
                             <div class="slotSetMenu_title_game">
-                                <img src="/img/01_Lobby/game_icon/img_sloticon_01.png" alt="遊戲圖">
+                                <img src="./img/01_Lobby/game_icon/img_sloticon_01.png" alt="遊戲圖">
                             </div>
                             <!-- 機台內容 -->
                             <div class="slotSetMenu_title_content d-flex">
@@ -382,20 +382,20 @@
                     <div class="slotSetMenu_Function_content slot_loadScore">
                         <ul class="slot_loadScore_list_container">
                             <div class="slot_loadScore_list_container_deco"><img
-                                    src="/img/08_Slot/slot_Info/img_loadscore_bg.png" alt="裝飾物"></div>
+                                    src="./img/08_Slot/slot_Info/img_loadscore_bg.png" alt="裝飾物"></div>
                             <li>
                                 <button type="button">
-                                    <img src="/img/08_Slot//slot_Info/btn_loadscore_stand.png" alt="下分繼續">
+                                    <img src="./img/08_Slot//slot_Info/btn_loadscore_stand.png" alt="下分繼續">
                                 </button>
                             </li>
                             <li>
                                 <button type="button">
-                                    <img src="/img/08_Slot//slot_Info/btn_loadscore_leave.png" alt="下分離開">
+                                    <img src="./img/08_Slot//slot_Info/btn_loadscore_leave.png" alt="下分離開">
                                 </button>
                             </li>
                             <li>
                                 <button type="button" @click="slotSetMenuFunction('機台下分')">
-                                    <img src="/img/08_Slot//slot_Info/btn_loadscore_cancel.png" alt="取消下分">
+                                    <img src="./img/08_Slot//slot_Info/btn_loadscore_cancel.png" alt="取消下分">
                                 </button>
                             </li>
                         </ul>
@@ -409,12 +409,12 @@
                     <div class="slotSetMenu_Function_content_container slot_keepSlot">
                         <!-- 標題圖 -->
                         <div class="slotSetMenu_Function_title">
-                            <img src="/img/08_Slot/slot_Info/img_keepslot_title.png" alt="保留機台">
+                            <img src="./img/08_Slot/slot_Info/img_keepslot_title.png" alt="保留機台">
                         </div>
                         <!-- 內容區 -->
                         <div class="slotSetMenu_Function_content slot_keepSlot_content">
                             <div class="slotSetMenu_Function_content_bg"><img
-                                    src="/img/08_Slot/slot_Info/img_info_bg.png" alt="內容框"></div>
+                                    src="./img/08_Slot/slot_Info/img_info_bg.png" alt="內容框"></div>
                             <!-- 內部內容 -->
                             <div class="slotSetMenu_Function_content_table_container">
                                 <table>
@@ -444,7 +444,7 @@
                         <!-- 確認按鈕 -->
                         <div class="slotSetMenu_Function_btn">
                             <button type="button" @click="slotSetMenuFunction('保留機台')">
-                                <img src="/img/08_Slot/slot_Info/btn_confirm.png" alt="確認icon">
+                                <img src="./img/08_Slot/slot_Info/btn_confirm.png" alt="確認icon">
                             </button>
                         </div>
                     </div>
@@ -457,7 +457,7 @@
                     <div class="slotSetMenu_Function_content_container slot_line">
                         <!-- 標題圖 -->
                         <div class="slotSetMenu_Function_title">
-                            <img src="/img/08_Slot/slot_Info/img_line_title.png" alt="機台履歷">
+                            <img src="./img/08_Slot/slot_Info/img_line_title.png" alt="機台履歷">
                         </div>
                         <div class="slotSetMenu_Function_content slot_line_content">
                             <!-- 內部內容 -->
@@ -472,8 +472,8 @@
                                                 :checked="index === 0">
                                             <div class="slot_line_content_list_icon_container">
                                                 <img v-if="item.active === false"
-                                                    src="/img/08_Slot/slot_Info/img_empty_icon.png" alt="未選取icon">
-                                                <img v-else src="/img/08_Slot/slot_Info/img_fill_icon.png"
+                                                    src="./img/08_Slot/slot_Info/img_empty_icon.png" alt="未選取icon">
+                                                <img v-else src="./img/08_Slot/slot_Info/img_fill_icon.png"
                                                     alt="已選取icon">
                                             </div>
                                             <div class="slot_line_content_list_txt">
@@ -488,7 +488,7 @@
                         <!-- 確認按鈕 -->
                         <div class="slotSetMenu_Function_btn">
                             <button type="button" @click="slotSetMenuFunction('視訊線路')">
-                                <img src="/img/08_Slot/slot_Info/btn_confirm.png" alt="確認icon">
+                                <img src="./img/08_Slot/slot_Info/btn_confirm.png" alt="確認icon">
                             </button>
                         </div>
                     </div>
@@ -501,12 +501,12 @@
                     <div class="slotSetMenu_Function_content_container slot_record">
                         <!-- 標題圖 -->
                         <div class="slotSetMenu_Function_title">
-                            <img src="/img/08_Slot/slot_Info/img_record_title.png" alt="機台履歷">
+                            <img src="./img/08_Slot/slot_Info/img_record_title.png" alt="機台履歷">
                         </div>
                         <!-- 內容 -->
                         <div class="slotSetMenu_Function_content slot_record_content">
                             <div class="slotSetMenu_Function_content_bg"><img
-                                    src="/img/08_Slot/slot_Info/img_info_bg.png" alt="內容框"></div>
+                                    src="./img/08_Slot/slot_Info/img_info_bg.png" alt="內容框"></div>
                             <!-- 內部內容 -->
                             <div class="slotSetMenu_Function_content_table_container">
                                 <table>
@@ -529,7 +529,7 @@
                         <!-- 確認按鈕 -->
                         <div class="slotSetMenu_Function_btn">
                             <button type="button" @click="slotSetMenuFunction('機台履歷')">
-                                <img src="/img/08_Slot/slot_Info/btn_confirm.png" alt="確認icon">
+                                <img src="./img/08_Slot/slot_Info/btn_confirm.png" alt="確認icon">
                             </button>
                         </div>
                     </div>
@@ -546,12 +546,12 @@
                             <div class="slot_service_outLink">
                                 <figure>
                                     <a href="">
-                                        <img src="/img/06_Service/btn/btn_wechat.png" alt="微信">
+                                        <img src="./img/06_Service/btn/btn_wechat.png" alt="微信">
                                     </a>
                                 </figure>
                                 <figure>
                                     <a href="">
-                                        <img src="/img/06_Service/btn/btn_telegram.png" alt="telegram">
+                                        <img src="./img/06_Service/btn/btn_telegram.png" alt="telegram">
                                     </a>
                                 </figure>
                             </div>
@@ -559,7 +559,7 @@
                             <div class="slot_service_qrCode">
                                 <figure>
                                     <a href="">
-                                        <img src="/img/06_Service/img_qrcodebackground.png" alt="客服端QRCODE">
+                                        <img src="./img/06_Service/img_qrcodebackground.png" alt="客服端QRCODE">
                                     </a>
                                 </figure>
                             </div>
