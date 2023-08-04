@@ -183,48 +183,48 @@ Vue.createApp({
       slotSetMenu:[
         {
           name:'機台上分',
-          imgUrl:"/img/08_Slot/slot_Info/btn_upscore.png",
+          imgUrl:"../img/08_Slot/slot_Info/btn_upscore.png",
           active:false,
         },
         {
           name:'機台下分',
-          imgUrl:"/img/08_Slot/slot_Info/btn_loadscore.png",
+          imgUrl:"../img/08_Slot/slot_Info/btn_loadscore.png",
           active:false,
         },
         {
           name:'保留機台',
-          imgUrl:"/img/08_Slot/slot_Info/btn_keepslot.png",
+          imgUrl:"../img/08_Slot/slot_Info/btn_keepslot.png",
           active:false,
         },
         {
           name:'收藏機台',
-          imgUrl:"/img/08_Slot/slot_Info/btn_collectslot.png",
+          imgUrl:"../img/08_Slot/slot_Info/btn_collectslot.png",
           active:false,
           
         },
         {
           name:'視訊線路',
-          imgUrl:"/img/08_Slot/slot_Info/btn_line.png",
+          imgUrl:"../img/08_Slot/slot_Info/btn_line.png",
           active:false,
         },
         {
           name:'機台履歷',
-          imgUrl:"/img/08_Slot/slot_Info/btn_record.png",
+          imgUrl:"../img/08_Slot/slot_Info/btn_record.png",
           active:false,
         },
         {
           name:'機台攻略',
-          imgUrl:"/img/08_Slot/slot_Info/btn_direction.png",
+          imgUrl:"../img/08_Slot/slot_Info/btn_direction.png",
           active:false,
         },
         {
           name:'機台重整',
-          imgUrl:"/img/08_Slot/slot_Info/btn_reset.png",
+          imgUrl:"../img/08_Slot/slot_Info/btn_reset.png",
           active:false,
         },
         {
           name:'線上客服',
-          imgUrl:"/img/08_Slot/slot_Info/btn_service.png",
+          imgUrl:"../img/08_Slot/slot_Info/btn_service.png",
           active:false,
         },
         
