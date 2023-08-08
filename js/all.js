@@ -557,7 +557,7 @@ Vue.createApp({
     window.addEventListener('load', () => {
       setTimeout(() => {
         loading_container.style.display = 'none';
-      }, 4500);
+      }, 1800);
     });
   },
     /* slot.html 新增 */
